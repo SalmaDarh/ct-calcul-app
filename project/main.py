@@ -14,9 +14,9 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 db=SQLAlchemy(app)
 
-#DATABASE_URL ='mysql://root:@localhost/DBlogin'
-DATABASE_URL='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
-app.config['SQLALCHEMY_DATABASE_URI']='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
+app.config['DATABASE_URL'] ='mysql://root:@localhost/DBlogin'
+#DATABASE_URL='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
+#app.config['SQLALCHEMY_DATABASE_URI']='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # it's for extra protection)
 SECRET_KEY = ')6VQ)s*z26B#D*>'
