@@ -79,7 +79,7 @@ def consol_file():
         for file in get_files(target):
             files.append(file) 
     except:
-        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("consol_file.html",files=get_files(target))
 
 
@@ -91,7 +91,7 @@ def controle_file():
         for file in get_files(target):
             files.append(file)  
     except:
-        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")    
+        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")    
     return render_template("controle_file.html",files=get_files(target))
 
 
@@ -103,7 +103,7 @@ def result_Consolfile():
         for file in get_files(target):
             files.append(file)  
     except:
-        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")    
+        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")    
     return render_template("result_Consolfile.html",files=get_files(target))
 
 
@@ -115,7 +115,7 @@ def result_Controlefile():
         for file in get_files(target):
             filee.append(file)   
     except:
-        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("result_Controlefile.html",filee=get_files(target))
 
 
@@ -127,7 +127,7 @@ def bo_file():
         for file in get_files(target):
             files.append(file)   
     except:
-        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("bo_file.html",files=get_files(target))
 
 @app.route('/accueil/historique/FichiersBOs',methods = ['GET', 'POST'])
@@ -138,7 +138,7 @@ def bo_files():
         for file in get_files(target):
             files.append(file)   
     except:
-        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("bo_files.html",files=get_files(target))
 
 
@@ -153,7 +153,7 @@ def login():
             user = User.query.filter_by(username=username).first()
             if (username=='admin'):
                 if(password=='admin'):
-                    return redirect('/admin/')
+                    return redirect('ct-calcul-app.herokuapp.com/admin/')
             if user:
                 if user.password==password:
                     login_user(user)
@@ -167,7 +167,7 @@ def login():
     return render_template('index.html')
  
 
-@app.route('/accueil/')
+@app.route('ct-calcul-app.herokuapp.com/accueil/')
 @login_required
 def accueil():
     try:
