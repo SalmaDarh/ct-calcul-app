@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 db=SQLAlchemy(app)
 
-DATABASE_URL ='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
+DATABASE_URL ='mysql://root:@localhost/DBlogin'
 #DATABASE_URL=
 #app.config['SQLALCHEMY_DATABASE_URI']='postgres://kxknemtmelhnoe:5114c7c4a16b5edb4ef1b7d660f9ffba70295a5466465604612222d286f2f384@ec2-3-217-113-25.compute-1.amazonaws.com:5432/d6svlihbs0m18v'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -79,7 +79,7 @@ def consol_file():
         for file in get_files(target):
             files.append(file) 
     except:
-        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("consol_file.html",files=get_files(target))
 
 
@@ -91,7 +91,7 @@ def controle_file():
         for file in get_files(target):
             files.append(file)  
     except:
-        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")    
+        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")    
     return render_template("controle_file.html",files=get_files(target))
 
 
@@ -103,7 +103,7 @@ def result_Consolfile():
         for file in get_files(target):
             files.append(file)  
     except:
-        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")    
+        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")    
     return render_template("result_Consolfile.html",files=get_files(target))
 
 
@@ -115,7 +115,7 @@ def result_Controlefile():
         for file in get_files(target):
             filee.append(file)   
     except:
-        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("result_Controlefile.html",filee=get_files(target))
 
 
@@ -127,7 +127,7 @@ def bo_file():
         for file in get_files(target):
             files.append(file)   
     except:
-        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("bo_file.html",files=get_files(target))
 
 @app.route('/accueil/historique/FichiersBOs',methods = ['GET', 'POST'])
@@ -138,7 +138,7 @@ def bo_files():
         for file in get_files(target):
             files.append(file)   
     except:
-        return("Erreur d'application : Veuillez demander de l'aide à votre administrateur")   
+        return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")   
     return render_template("bo_files.html",files=get_files(target))
 
 
@@ -153,7 +153,7 @@ def login():
             user = User.query.filter_by(username=username).first()
             if (username=='admin'):
                 if(password=='admin'):
-                    return redirect('ct-calcul-app.herokuapp.com/admin/')
+                    return redirect('/admin/')
             if user:
                 if user.password==password:
                     login_user(user)
@@ -167,7 +167,7 @@ def login():
     return render_template('index.html')
  
 
-@app.route('ct-calcul-app.herokuapp.com/accueil/')
+@app.route('/accueil/')
 @login_required
 def accueil():
     try:
