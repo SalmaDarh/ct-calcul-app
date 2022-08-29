@@ -167,7 +167,7 @@ def login():
         return render_template('index.html')
  
 
-@app.route('/accueil/')
+@app.route('ct-calcul-app.herokuapp.com/accueil/')
 @login_required
 def accueil():
     try:
