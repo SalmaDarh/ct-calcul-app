@@ -147,24 +147,24 @@ def bo_files():
 def login():
      
     if request.method == 'POST':
-        try:
-            username=request.form['username']
-            password=request.form['password']
-            user = User.query.filter_by(username=username).first()
-            if (username=='admin'):
-                if(password=='admin'):
-                    return redirect('/admin/')
-            if user:
-                if user.password==password:
-                    login_user(user)
-                    return redirect(url_for('accueil'))
-            else:
-                # Account doesnt exist or username/password incorrect
-                print('Nom d utilisateur ou mot de passe incorrect') 
-                return redirect(url_for('login'))
-        except:
-            return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")  
-    return render_template('index.html')
+        #try:
+        username=request.form['username']
+        password=request.form['password']
+        user = User.query.filter_by(username=username).first()
+        if (username=='admin'):
+            if(password=='admin'):
+                return redirect('/admin/')
+        if user:
+            if user.password==password:
+                login_user(user)
+                return redirect(url_for('accueil'))
+        else:
+            # Account doesnt exist or username/password incorrect
+            print('Nom d utilisateur ou mot de passe incorrect') 
+            return redirect(url_for('login'))
+    #except:
+    #    return("Errreur d'application : Veuillez demander de l'aide à votre administrateur")  
+        return render_template('index.html')
  
 
 @app.route('/accueil/')
