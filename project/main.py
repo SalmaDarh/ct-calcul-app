@@ -15,8 +15,8 @@ app = Flask(__name__)
 db=SQLAlchemy(app)
 
 DATABASE_URL ='mysql://root:@localhost/DBlogin'
-#DATABASE_URL=
-#app.config['SQLALCHEMY_DATABASE_URI']='postgres://kxknemtmelhnoe:5114c7c4a16b5edb4ef1b7d660f9ffba70295a5466465604612222d286f2f384@ec2-3-217-113-25.compute-1.amazonaws.com:5432/d6svlihbs0m18v'
+DATABASE_URL='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47aac3d297b850566f2a0038683c466b1c2bdf85e9bc70b995a@ec2-44-210-36-247.compute-1.amazonaws.com:5432/d6vtmvq648cu3o'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # it's for extra protection)
 SECRET_KEY = ')6VQ)s*z26B#D*>'
@@ -27,7 +27,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'index'
 
-
+db.create_all()
 #Database Model class
 class User(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key = True)
