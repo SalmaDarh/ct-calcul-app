@@ -1,0 +1,26 @@
+.adm{
+    color:#f29526;
+}
+
+a{
+     color:#f29526
+}
+
+.adm a {
+    background-color: white;
+    color: black;
+    border: 2px solid #f29526;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+.adm a:hover, a:active {
+    background-color: #f29526;
+    color: white;
+  }
+
+h2{
+    color:#008bcc
+}

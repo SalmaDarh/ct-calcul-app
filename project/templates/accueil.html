@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<img src="{{url_for('static', filename='logo_CT.png')}}" class="center" alt="Logo de Casa Transports"  height="200" width="300" />
+<div class="login">
+		<h1 style="color: #f29526;">Veuillez choisir une opération:</h1>
+			<div class="links">
+				<a href="{{ url_for('consolidation') }}" class="active" >Consolidation des recettes</a>
+				<a href="{{ url_for('ChoixControle') }}" class="active">Contrôle bancaire</a>
+				<a href="{{ url_for('comparaison') }}" class="active" >Comparaison BO</a>
+				<a href="{{ url_for('historique') }}" class="active">Historique</a>
+			</div>
+			
+		</div>
+{% endblock %}
+

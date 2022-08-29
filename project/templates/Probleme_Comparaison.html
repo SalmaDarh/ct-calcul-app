@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2 align="center" style="color: rgb(13, 86, 241)">Différence entre deux fichiers BO du {{date}}</h2>
+
+
+<div>
+    <h3><strong style="color: #f29526">{{var}}</strong>   : {{phrase}}  = <strong id="demo">  {{val}} </strong> MAD</h3>
+    <script>
+        var el = document.getElementById('demo');
+            if (el < 0) {
+                el.className += "red";
+            } else {
+                el.className += "green";
+            }
+        </script>
+</div>
+<div>
+    <h4>Si le fichier résultat de la comparaison n'est pas généré automatiquement, Veuillez copier le lien ci-dessous et le coller dans un nouvel onglet:</h4>
+    <p>file:///C:\Users\lenovo\FlaskProject\project\Result_Comparaison_BO\Comparaison_BO_Du_{{date}}.xlsx</p>
+</div>
+
+{% endblock %}

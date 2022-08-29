@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2 align="center" style="color: rgb(245, 151, 29)">Fichiers résultat de la comparaison BO</h2>
+<ul>
+{% for file in files %}
+    <li class="collection-item">file:///{{ file }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

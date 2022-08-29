@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2 align="center" style="color: rgb(245, 151, 29)">Fichiers résultats du contrôle bancaire: </h2>
+
+<ul>
+    {% for file in filee %}
+        <li class="collection-item">file:///C:\Users\lenovo\FlaskProject\project\Result_ControleBancaire_Files\{{ file }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

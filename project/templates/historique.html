@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2 align="center" style="color: #3274d6;">Consulter l'historique:</h2>
+
+    <div class="link">
+        <a href="{{ url_for('consol_file') }}" class="active" text-size="100px">Fichiers de Consolidation des recettes</a>
+    </div>
+
+    <div class="link">
+		<a href="{{ url_for('controle_file') }}">Fichiers du Contrôle bancaire</a>
+    </div>
+
+    <div class="link">
+      <a href="{{ url_for('bo_file') }}" class="active">Fichiers BO</a>
+    </div>
+    
+    <div class="link">
+		  <a href="{{ url_for('result_Consolfile') }}" >Fichiers résultat de la consolidation</a>			
+	  </div>
+
+    <div class="link">
+      <a href="{{ url_for('result_Controlefile') }}"  class="active">Fichiers résultat du contrôle bancaire</a>			
+    </div>
+
+    <div class="link">
+      <a href="{{ url_for('bo_files') }}"  class="active">Fichiers résultat de la comparaison de 2 fichiers BO</a>			
+    </div>
+
+{% endblock %}

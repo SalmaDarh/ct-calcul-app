@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2 align="center" style="color: rgb(245, 151, 29)">Résultat de la consolidation du  {{depart}} au {{fin}}</h2>
+
+
+<div>
+    <h3>L'écart DTT = <strong id="demo">{{ecart_dtt}}</strong> MAD</h3>
+    <h3>L'écart agence = <strong id="demoo">{{ecart_agence}} </strong>  MAD</h3>
+    <h3>L'écart depositaire = <strong id="demoe"> {{ecart_depositaire}} </strong>  MAD</h3>
+    
+        <script>
+        var el = document.getElementById('demo');
+        var elo = document.getElementById('demoo');
+        var ele = document.getElementById('demoe');
+            if (el < 0) {
+                el.className += "red";
+            } else {
+                el.className += "green";
+            }
+            if (elo < 0) {
+                elo.className += "red";
+            } else {
+                elo.className += "green";
+            }
+            if (ele < 0) {
+                ele.className += "red";
+            } else {
+                ele.className += "green";
+            }
+        </script>
+<br></br>
+    <h4>Si le fichier résultat n'est pas généré automatiquement, Veuillez copier le lien ci-dessous dans un nouvel onglet:</h4>
+    <p>file:///C:\Users\lenovo\FlaskProject\project\Result_ConsolFiles\Fichier_Resultat_Du_{{depart}}_Au_{{fin}}.xlsx</p>
+</div>
+
+
+{% endblock %}
