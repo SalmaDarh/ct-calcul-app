@@ -20,7 +20,7 @@ app.config['SQLALCHEMY_DATABASE_URI']='postgres://oobcbidulaqvrb:76f6fdf6b9c5e47
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # it's for extra protection)
 SECRET_KEY = ')6VQ)s*z26B#D*>'
-
+db.create_all()
 admin = Admin(app,name='Interface Administrateur')
 
 login_manager = LoginManager()
