@@ -15,12 +15,11 @@ app = Flask(__name__)
 db=SQLAlchemy(app)
 
 #app.config['DATABASE_URL'] ='mysql://root:@localhost/DBlogin'
-DATABASE_URL='postgres://fbysjekhyamgwp:924ede54c880926258c0401bc0a6cf0368de1e2d3c957f67cd58045c79c3823b@ec2-34-199-68-114.compute-1.amazonaws.com:5432/d7jcp89vb06obl'
-app.config['SQLALCHEMY_DATABASE_URI']=DATABASE_URL
+DATABASE_URL='postgresql://fbysjekhyamgwp:924ede54c880926258c0401bc0a6cf0368de1e2d3c957f67cd58045c79c3823b@ec2-34-199-68-114.compute-1.amazonaws.com:5432/d7jcp89vb06obl'
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get(DATABASE_URL) 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # it's for extra protection)
 SECRET_KEY = ')6VQ)s*z26B#D*>'
-db.create_all()
 admin = Admin(app,name='Interface Administrateur')
 
 login_manager = LoginManager()
