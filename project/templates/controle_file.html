@@ -7,7 +7,9 @@
 <h2 align="center" style="color: rgb(245, 151, 29)">Fichiers du contrôle bancaire:</h2>
 <ul>
     {% for file in files %}
-        <li class="collection-item">file:///C:\Users\lenovo\FlaskProject\project\ControleFiles\{{ file }}</li>
+    <li>
+        <a href="ms-excel:ofe|u|file:///C:\Users\lenovo\FlaskProject\project\ControleFiles\{{ file }}">{{file}}</a>
+    </li>
     {% endfor %}
 </ul>
 

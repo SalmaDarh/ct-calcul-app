@@ -14,21 +14,19 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 db=SQLAlchemy(app)
 
-#app.config['DATABASE_URL'] ='mysql://root:@localhost/DBlogin'   
-
+app.config['SQLALCHEMY_DATABASE_URI'] ='mysql://root:@localhost/DBlogin'  
 #DATABASE_URL='postgresql://fbysjekhyamgwp:924ede54c880926258c0401bc0a6cf0368de1e2d3c957f67cd58045c79c3823b@ec2-34-199-68-114.compute-1.amazonaws.com:5432/d7jcp89vb06obl'
 #app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('mysql://root:@localhost/DBlogin') 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:@fbysjekhyamgwp:924ede54c880926258c0401bc0a6cf0368de1e2d3c957f67cd58045c79c3823b@ec2-34-199-68-114.compute-1.amazonaws.com:5432/d7jcp89vb06obl/postgresql-aerodynamic-26668"
+#app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:password@localhost/database1"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # it's for extra protection)
-SECRET_KEY = ')6VQ)s*z26B#D*>'
+app.secret_key = ')6VQ)s*z26B#D*>'
 admin = Admin(app,name='Interface Administrateur')
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'index'
 
-db.create_all()
 #Database Model class
 class User(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key = True)
@@ -154,7 +152,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if (username=='admin'):
             if(password=='admin'):
-                return redirect('/ct-calcul-app.herokuapp.com/admin/')
+                return redirect('/admin/')
         if user:
             if user.password==password:
                 login_user(user)
