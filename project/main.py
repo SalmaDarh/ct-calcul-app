@@ -153,7 +153,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if (username=='admin'):
             if(password=='admin'):
-                return redirect('/admin/')
+                return redirect('/ct-calcul-app.herokuapp.com/admin/')
         if user:
             if user.password==password:
                 login_user(user)
@@ -469,6 +469,19 @@ def consolidation():
                 data_BO = pd.read_excel(f) 
                 data_BO = data_BO[:-1]  #delete total row
 
+                """while (str(data0['date'][0])!= str(data_BO['Date'][:-1][0])):
+                    print(str(data0['date'][0])+" supprimée")
+                    data0 = data0.drop([0])
+                    data0 = data0.reset_index(drop=True)
+                print("********")
+                while (str(data0['date'][len(data0)-1])!= str(data_BO['Date'][:-1][len(data_BO['Date'][:-1])-1])):
+                    print(str(data0['date'][len(data0)-1])+" supprimée")
+                    #print(str(data0['date'][len(data0)-1]))s
+                    #print(str(data_BO['Date'][:-1][len(data_BO['Date'][:-1])-1]))
+                    data0 = data0[:-1]
+                    data0 = data0.reset_index(drop=True)
+                """
+
                 #Calcul totaux dtt agence depo 
                 dtt_total = data0["ca_dtt_support"] + data0["ca_dtt_charge"] + data0["ca_dtt_ab_hebdo"] + data0["ca_dtt_ab_mens"] + data0["ca_dtt_ab_mens_etud"] 
                 data0.insert(25, 'dtt_total', dtt_total)
@@ -485,7 +498,7 @@ def consolidation():
                 data0.insert(35, 'agence_BO', data_BO['TPV'])
                 data0.insert(44, 'depo_BO', data_BO['TV'])
                 #drop usless columns
-                data0 = data0.drop(data0.iloc[:, 1:21],axis = 1)
+                #data0 = data0.drop(data0.iloc[:, 1:21],axis = 1)
                 #total columns coloration
                 def highlight_cols(s):
                     color = 'yellow'

@@ -8,7 +8,9 @@
 
 <ul>
     {% for file in filee %}
-        <li class="collection-item">file:///C:\Users\lenovo\FlaskProject\project\Result_ControleBancaire_Files\{{ file }}</li>
+        <li>
+            <a href="ms-excel:ofe|u|file:///C:\Users\lenovo\FlaskProject\project\Result_ControleBancaire_Files\{{ file }}">{{file}}</a>
+        </li>
     {% endfor %}
 </ul>
 {% endblock %}
