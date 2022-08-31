@@ -15,8 +15,8 @@ app = Flask(__name__)
 db=SQLAlchemy(app)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] ='mysql://root:@ct-calcul-app.herokuapp.com/DBlogin'  
-DATABASE_URL='postgresql://iaihvpwmbepwmd:08d298f1f84e943dcc72389cba9696c2932ab40e5f3f7b4aa3c8567526313469@ec2-18-204-142-254.compute-1.amazonaws.com:5432/dbbfton7b50974'
-app.config['SQLALCHEMY_DATABASE_URI']=DATABASE_URL
+DATABASE_URL='postgres://pjcnbmgdenbmvv:4a82ee2bbe9d08e69be1ce557d628987555aada24ea3c3433eb2dc5343dd0b21@ec2-35-168-122-84.compute-'
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
 #app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:password@localhost/database1"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # it's for extra protection)
