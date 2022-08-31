@@ -8,17 +8,20 @@ from flask_admin.contrib.sqla import ModelView
 from flask_admin import Admin
 from flask_login import UserMixin,LoginManager,login_user,logout_user,login_required
 from datetime import datetime, timedelta
-
+import psycopg2
 
 #2. Create variables and configure MySQL connection details:
 app = Flask(__name__)
 db=SQLAlchemy(app)
 
-#app.config['SQLALCHEMY_DATABASE_URI'] ='mysql://root:@ct-calcul-app.herokuapp.com/DBlogin'  
-DATABASE_URL='postgres://pjcnbmgdenbmvv:4a82ee2bbe9d08e69be1ce557d628987555aada24ea3c3433eb2dc5343dd0b21@ec2-35-168-122-84.compute-'
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
-#app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:password@localhost/database1"
+
+
+DATABASE_URL='postgresql://pjcnbmgdenbmvv:4a82ee2bbe9d08e69be1ce557d628987555aada24ea3c3433eb2dc5343dd0b21@ec2-35-168-122-84.compute-'
+app.config['SQLALCHEMY_DATABASE_URI']=DATABASE_URL
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+#app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:password@localhost/database1"
 # it's for extra protection)
 app.secret_key = ')6VQ)s*z26B#D*>'
 admin = Admin(app,name='Interface Administrateur')
